@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:my_shop/providers/products.dart';
-import 'package:my_shop/screen/product_detail_screen.dart';
-import 'package:my_shop/screen/product_overview_screen.dart';
 import 'package:provider/provider.dart';
+
+import './screens/products_overview_screen.dart';
+import './screens/product_detail_screen.dart';
+import './providers/products.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,18 +13,16 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (ctx) => Products(),
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'MyShop',
-        theme: ThemeData(
-          primarySwatch: Colors.amber,
-          accentColor: Colors.white,
-          fontFamily: 'Lato',
-        ),
-        home: ProductOverViewScreen(),
-        routes: {
-          ProductDetailsScreen.routeName: (ctx) => ProductDetailsScreen()
-        },
-      ),
+          title: 'MyShop',
+          theme: ThemeData(
+            primarySwatch: Colors.purple,
+            accentColor: Colors.deepOrange,
+            fontFamily: 'Lato',
+          ),
+          home: ProductsOverviewScreen(),
+          routes: {
+            ProductDetailScreen.routeName: (ctx) => ProductDetailScreen(),
+          }),
     );
   }
 }
